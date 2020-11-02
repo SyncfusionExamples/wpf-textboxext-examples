@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.Xaml.Behaviors;
+using Syncfusion.Windows.Controls.Input;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,23 +21,10 @@ namespace Multipath_Search
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
-    {
+    {        
         public MainWindow()
         {
             InitializeComponent();
-            autoComplete.Filter = CustomFilter;
-        }
-        private bool CustomFilter(string search, object item)
-        {
-            var model = item as Model;
-            if (model != null)
-            {
-                if ((model.Name.ToLower().Contains(search.ToLower())) || ((model.ID).ToString().ToLower().Contains(search.ToLower())))
-                {
-                    return true;
-                }
-            }
-            return false;
         }
     }
 }
